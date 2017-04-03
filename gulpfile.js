@@ -79,8 +79,8 @@ gulp.task('htmlcopy', htmlcopy);
 let jscontact = () => {
 
         let _SPath =  ['bower_components/**/*.min.js',
-                       '!*.gzip','!*.map',
-                       SOURCE_PATH + '/**/*.js'
+                        SOURCE_PATH + '/**/*.js',
+                       '!*.gzip','!*.map'
                       ];
         let _DPath =  DESTINATION_PATH + '/dist';
 
@@ -166,11 +166,15 @@ gulp.task('prod',['jscontact', 'buildhtmlcopy', 'sasscontact'],() => {
 let deploy = argv.m == 'prod' ? 'prod':'dev' ;
 gulp.task('server', [deploy], ()=>{
   browserSync.init({
-      server: `${config.APP_PATH}/${DESTINATION_PATH}`
+      server: `${config.APP_PATH}${DESTINATION_PATH}`
   });
 
    gulp.watch( SOURCE_PATH + '/scss/**/*.scss', ['sasscontact']).on('change', browserSync.reload);
-   gulp.watch( SOURCE_PATH + '/js/**/*.js', ['jscopy']).on('change', browserSync.reload);
+   if(deploy == 'dev'){
+      gulp.watch( SOURCE_PATH + '/js/**/*.js', ['jscopy']).on('change', browserSync.reload);  
+   }else if(deploy == 'prod'){
+      gulp.watch( SOURCE_PATH + '/js/**/*.js', ['jscontact']).on('change', browserSync.reload);      
+   } 
    gulp.watch( SOURCE_PATH + '/**/*.html', ['htmlcopy']).on('change', browserSync.reload);
 });
 
