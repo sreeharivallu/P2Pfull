@@ -1,0 +1,32 @@
+/********************
+ ******variables*****
+ ********************/
+
+  
+$base:                    #f5821f;                   
+$success:                 #1A237E;
+$alert:                   #C62828;
+$info:                    #2196F3;
+$white:                   #ffffff;
+$shadow:                  #888888;
+
+$height:                  50px;
+
+$padding-left:            5%;
+$padding-right:           5%;
+$padding-top:             5%;
+$padding-bottom:          5%;
+
+$margin-left:             5%;
+$margin-right:            5%;
+$margin-top:              5%;
+$margin-bottom:           5%;
+
+$font-size:               14px;
+
+
+$header-background:       $base; 
+$header-bottom-border:    hlg($base, 10%);    
+    
+$header-font:             'Arial,Helvetica,sans-serif';
+$header-font-size:        $font-size + 4; 

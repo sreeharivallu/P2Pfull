@@ -134,7 +134,8 @@ let wwwcopy = () => {
 
         let _SPath =  DESTINATION_PATH+'/**';
         let _DPath =  config.APP_PATH + '/mobile_build/cordova/www';
-
+       
+       console.log(_SPATH);
 
         return gulp.src(_SPath)
                .pipe(gulp.dest(_DPath));
@@ -170,12 +171,14 @@ gulp.task('server', [deploy], ()=>{
   });
 
    gulp.watch( SOURCE_PATH + '/scss/**/*.scss', ['sasscontact','htmlcopy']).on('change', browserSync.reload);
-   if(deploy == 'dev'){
+   
+    if(deploy == 'dev'){
       gulp.watch( SOURCE_PATH + '/js/**/*.js', ['jscopy','htmlcopy']).on('change', browserSync.reload);  
    }else if(deploy == 'prod'){
       gulp.watch( SOURCE_PATH + '/js/**/*.js', ['jscontact','htmlcopy']).on('change', browserSync.reload);      
    } 
-   //gulp.watch( SOURCE_PATH + '/**/*.html', ['htmlcopy']).on('change', browserSync.reload);
+   
+    gulp.watch( SOURCE_PATH + '/**/*.html', ['htmlcopy']).on('change', browserSync.reload);
 });
 
 }else if(process.argv[2] == 'build' && (argv.m != undefined && argv.a != undefined)){

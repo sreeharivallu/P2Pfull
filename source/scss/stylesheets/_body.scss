@@ -1,0 +1,10 @@
+.icici-header{
+    width:100%;
+    background-color:$header-background;
+    height:$height;
+    border-bottom:1px solid $header-bottom-border;  
+    @include box-shadow(1px, 2px, 2px, 2px, $shadow);
+}
+
+
+
