@@ -10,8 +10,6 @@ angular.module('icici',['ui.router'])
       
     
       $urlRouterProvider.otherwise('/login');
-      
-    
       $stateProvider.state(loginState);
     
 });
