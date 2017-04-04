@@ -25,6 +25,65 @@
     }
 }
 
+.icici-container{
+    padding-top:$padding-top - 4;
+    padding-left:$padding-left - 4;
+    padding-right:$padding-right - 4; 
+    background-color:$header-background;
+    height:$height + 75;
+}
+
+.icici-account{
+    
+    & img{
+    width:$width + 35;
+    margin-top:$margin-top + 20;
+    margin-bottom:$margin-top + 20;    
+    }
+    
+    & label{
+    font-size:$font-size + 4;
+    padding-top:$padding-top; 
+    padding-right:$padding-right - 3;     
+    }
+    
+    & p{
+     margin:0;
+     padding:0;
+    }
+    
+}
+
+
+
+.icici-menu{
+    div{
+        border:1px solid $shadow;
+        border-radius:2px; 
+        margin-top:$margin-top + 10;
+        margin-bottom:$margin-bottom + 10;
+    }
+    
+    
+    div > ul,li{
+        list-style:none; 
+        padding:0;
+        margin:0;
+    }
+    
+    div > ul > li > p{
+        text-align: center;
+        color:darken($shadow, 25);
+        font-weight:$font-weight + 100;
+    }
+    
+    div > ul > li > img{
+        width:100%;
+        height:$height;
+        margin:$margin-top + 5 0 $margin-bottom + 10 auto;
+    }
+    
+}
 
 
 

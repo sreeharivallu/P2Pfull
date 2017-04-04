@@ -135,8 +135,6 @@ let wwwcopy = () => {
         let _SPath =  DESTINATION_PATH+'/**';
         let _DPath =  config.APP_PATH + '/mobile_build/cordova/www';
        
-       console.log(_SPATH);
-
         return gulp.src(_SPath)
                .pipe(gulp.dest(_DPath));
 }
@@ -144,7 +142,28 @@ let wwwcopy = () => {
 
 gulp.task('wwwcopy', wwwcopy);
 
+let bootfonts = () => {
 
+        let _SPath =  'bower_components/bootstrap-sass/assets/fonts/bootstrap/*' 
+        let _DPath =  DESTINATION_PATH + '/fonts/bootstrap';
+
+        return gulp.src(_SPath)
+              .pipe(gulp.dest(_DPath));
+}
+
+gulp.task('bootfonts', bootfonts);
+
+
+let images = () => {
+
+        let _SPath =  SOURCE_PATH + '/images/*' 
+        let _DPath =  DESTINATION_PATH + '/images';
+
+        return gulp.src(_SPath)
+              .pipe(gulp.dest(_DPath));
+}
+
+gulp.task('images', images);
 
 
 /**
@@ -154,12 +173,12 @@ gulp.task('wwwcopy', wwwcopy);
 
 if(process.argv[2] == 'server' && argv.m != undefined){
 
-gulp.task('dev',['sasscontact', 'jscopy', 'htmlcopy'], ()=>{
+gulp.task('dev',['sasscontact', 'jscopy', 'htmlcopy', 'bootfonts', 'images'], ()=>{
   console.log(`Development files are copied to ${DESTINATION_PATH}`);
 });
 
 
-gulp.task('prod',['jscontact', 'buildhtmlcopy', 'sasscontact'],() => {
+gulp.task('prod',['jscontact', 'buildhtmlcopy', 'sasscontact', 'bootfonts', 'images'],() => {
    console.log(`Production files are copied to ${DESTINATION_PATH}`);
 });
 
@@ -190,12 +209,12 @@ gulp.task('server', [deploy], ()=>{
   console.log(config.MOBILE_XML);
 
 
-  gulp.task('dev',['sasscontact', 'jscopy', 'htmlcopy'], ()=>{
+  gulp.task('dev',['sasscontact', 'jscopy', 'htmlcopy', 'bootfonts', 'images'], ()=>{
   console.log(`Development files are copied to ${DESTINATION_PATH}`);
   });
 
 
-  gulp.task('prod',['jscontact', 'buildhtmlcopy', 'sasscontact'],() => {
+  gulp.task('prod',['jscontact', 'buildhtmlcopy', 'sasscontact', 'bootfonts', 'images'],() => {
   console.log(`Production files are copied to ${DESTINATION_PATH}`);
   });
 

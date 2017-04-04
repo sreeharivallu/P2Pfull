@@ -7,9 +7,19 @@ angular.module('icici',['ui.router'])
          url:'/login',
          templateUrl: '/templates/navbar/navbar.tmpl.html'  //'/templates/login.tmpl.html'
     }
+    
+    let mainState = {
+         name:'main',
+         url:'/main',
+         templateUrl: '/templates/mainmenu.tmpl.html'  //'/templates/login.tmpl.html'
+    }
       
     
-      $urlRouterProvider.otherwise('/login');
+    
+    
+      $urlRouterProvider.otherwise('/main');
+      
       $stateProvider.state(loginState);
+      $stateProvider.state(mainState);
     
 });
