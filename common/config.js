@@ -2,7 +2,7 @@
 
 let config = {
     
-     APP_PATH: `/home/upadhyayula/Workbench/Office/mobile`,
+     APP_PATH: ``,
 
      SOURCE:`source`,
      
